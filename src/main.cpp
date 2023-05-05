@@ -65,7 +65,7 @@ int main() {
 
    shader opcShader("../shaders/basic.shader");
    opcShader.bind();
-   opcShader.setUniform4f("u_Color", 1.0f, 0.9f, 0.1f, 1.0f);
+   opcShader.setUniform4f("u_Color", 1.0f, 0.5f, 0.0f, 0.0f);
 
    //unbinding following
    va.unbind();
@@ -73,29 +73,16 @@ int main() {
    ib.unbind();
    opcShader.unbind();
 
-   float r = 0.0f;
-   float increment = 0.05f;
-
    //loop until user closes the window
    while(!glfwWindowShouldClose(window)) {
       // glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
       GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
-      //binding them again
-      opcShader.bind();
-      opcShader.setUniform4f("u_Color", r, 0.9f, 0.1f, 1.0f);
-      // GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
       ib.bind();
       va.bind();
 
       GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
-      if (r > 1.0f)
-         increment = -0.05f;
-      else if (r < 0.0f)
-         increment = 0.05f;
-
-      r += increment;
       //swap front and back buffers
       glfwSwapBuffers(window);
 
