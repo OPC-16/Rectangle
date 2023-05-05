@@ -67,19 +67,12 @@ int main() {
    opcShader.bind();
    opcShader.setUniform4f("u_Color", 1.0f, 0.5f, 0.0f, 0.0f);
 
-   //unbinding following
-   va.unbind();
-   va.unbind();
-   ib.unbind();
-   opcShader.unbind();
+   ib.bind();
 
    //loop until user closes the window
    while(!glfwWindowShouldClose(window)) {
-      // glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-      GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
-      ib.bind();
-      va.bind();
+      GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
       GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
