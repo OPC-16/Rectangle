@@ -25,7 +25,7 @@ int main() {
    GLFWwindow* window;
 
    // create a window and its OpenGL context
-   window = glfwCreateWindow(1000, 800, "Rectangle~OpenGL", NULL, NULL);
+   window = glfwCreateWindow(800, 600, "Rectangle~OpenGL", NULL, NULL);
    if (!window) {
       glfwTerminate();
       return -1;
