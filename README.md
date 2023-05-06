@@ -50,3 +50,5 @@ int main() {
 
 ---
 
+![OpenGL Window](image.png "opengl window")
+
